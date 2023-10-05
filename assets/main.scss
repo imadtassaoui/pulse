@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: Akira;
+  src: url("../fonts/Akira.otf") format("opentype");
+}
+
+@font-face {
+  font-family: Helvetica;
+  src: url("../fonts/Helvetica.ttf") format("truetype");
+}
+
+// @font-face {
+//   font-family: Helvetica;
+//   src: url("fonts/Aventi.ttf") format(".ttf");
+// }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Akira", sans-serif;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+p {
+  font-family: "Helvetica", sans-serif;
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.animation {
+  animation: slide 5s linear infinite;
+}
+
+.animation-wrapper:hover .animation {
+  animation-play-state: paused;
+}
