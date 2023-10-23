@@ -5,7 +5,7 @@
 <template>
   <div class="snap-y">
     <Hero />
-    <Products />
+    <Products headline="new arrivals" />
     <Cta />
   </div>
 </template>

@@ -2,18 +2,12 @@
 <template>
   <footer class="flex flex-col gap-6 py-8 bg-white">
     <div class="flex w-full overflow-hidden animation-wrapper">
-      <div class="inline-block w-1/2 gap-24 animation whitespace-nowrap">
+      <div class="inline-block w-full gap-24 animation whitespace-nowrap">
         <img class="inline-block pr-24" src="../assets/logo-lg.svg " alt="" />
-        <img class="inline-block pr-24" src="../assets/logo-lg.svg" alt="" />
-        <img class="inline-block pr-24" src="../assets/logo-lg.svg" alt="" />
-        <img class="inline-block pr-24" src="../assets/logo-lg.svg" alt="" />
         <img class="inline-block pr-24" src="../assets/logo-lg.svg" alt="" />
       </div>
-      <div class="inline-block w-1/2 gap-24 animation whitespace-nowrap">
+      <div class="inline-block w-full gap-24 animation whitespace-nowrap">
         <img class="inline-block pr-24" src="../assets/logo-lg.svg " alt="" />
-        <img class="inline-block pr-24" src="../assets/logo-lg.svg" alt="" />
-        <img class="inline-block pr-24" src="../assets/logo-lg.svg" alt="" />
-        <img class="inline-block pr-24" src="../assets/logo-lg.svg" alt="" />
         <img class="inline-block pr-24" src="../assets/logo-lg.svg" alt="" />
       </div>
     </div>

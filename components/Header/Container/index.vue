@@ -1,5 +1,23 @@
+<script setup lang="ts">
+const nav = useNav();
+defineProps({
+  label: {
+    type: String,
+    required: true,
+  },
+  path: {
+    type: String,
+    required: true,
+  },
+});
+</script>
+
 <template>
-  <div class="bg-neutral-500 rounde-2xl">
-    <slot />
-  </div>
+  <NuxtLink @click="nav = false" :to="path"
+    ><li
+      class="flex flex-col items-center justify-center w-auto px-4 py-2 text-xs bg-white border rounded-full border-black/10 bg-opacity-20"
+    >
+      {{ label }}
+    </li></NuxtLink
+  >
 </template>
