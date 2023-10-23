@@ -14,9 +14,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
         with:
-          node-version: Use Node.js version ${{matrix.node-version}}
+          node-version: ${{matrix.node-version}}
       - run: npm i
       - run: npm run build
       - run: npm run test
