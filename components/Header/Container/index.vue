@@ -15,9 +15,10 @@ defineProps({
 <template>
   <NuxtLink @click="nav = false" :to="path"
     ><li
-      class="flex flex-col items-center justify-center w-auto px-4 py-2 text-xs bg-white border rounded-full border-black/10 bg-opacity-20"
+      class="flex gap-2 items-center justify-center w-auto px-4 py-2 text-xs bg-white border rounded-full border-black/10 bg-opacity-20 lg:bg-transparent lg:opacity-100 lg:border-none"
     >
-      {{ label }}
+      <slot />
+      <span>{{ label }}</span>
     </li></NuxtLink
   >
 </template>

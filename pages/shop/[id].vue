@@ -1,6 +1,10 @@
-<sctipt>
-  
-</sctipt>
+<script setup lang="ts">
+const sizes: string[] = ["xs", "s", "m", "l", "xl"];
+const activeSize = useState("activeSize", () => "");
+
+const productInfos: string[] = ["details", "fabric & fit"];
+const activeProductInfo = useState("activeProductInfo", () => "details");
+</script>
 
 <template>
   <div class="overflow-x-hidden">
@@ -43,24 +47,14 @@
           <h3 class="text-xl">size</h3>
           <div class="flex flex-wrap gap-2">
             <div
-              class="p-4 border border-black/10 flex items-center justify-center text-base"
+              v-for="size in sizes"
+              @click="activeSize = size"
+              :class="{
+                'p-4 w-16 h-16 border border-black/10 flex items-center justify-center text-base pointer': true,
+                'bg-black text-white': activeSize === size,
+              }"
             >
-              <p class="font-primary">xs</p>
-            </div>
-            <div
-              class="p-4 border border-black/10 flex items-center justify-center text-base"
-            >
-              <p class="font-primary">xs</p>
-            </div>
-            <div
-              class="p-4 border border-black/10 flex items-center justify-center text-base"
-            >
-              <p class="font-primary">xs</p>
-            </div>
-            <div
-              class="p-4 border border-black/10 flex items-center justify-center text-base"
-            >
-              <p class="font-primary">xs</p>
+              <p class="font-primary">{{ size }}</p>
             </div>
           </div>
         </div>
@@ -69,9 +63,16 @@
         <div class="flex flex-col gap-5">
           <div>
             <div class="flex flex-wrap gap-5">
-              <h4 class="text-dark-30">Details</h4>
-              <h4 class="text-dark-30">fabric & fit</h4>
-              <h4 class="text-dark-30">care guide</h4>
+              <h4
+                v-for="product in productInfos"
+                :class="{
+                  'text-dark-30 pointer': activeProductInfo !== product,
+                  'text-black pointer': activeProductInfo === product,
+                }"
+                @click="activeProductInfo = product"
+              >
+                {{ product }}
+              </h4>
             </div>
           </div>
           <p>
