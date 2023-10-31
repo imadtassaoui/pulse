@@ -38,11 +38,37 @@ p {
 
 @keyframes slide {
   from {
-    transform: translateX(0);
-  }
-  to {
     transform: translateX(-100%);
   }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes slideRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+.slideDown {
+  animation: slideDown 0.2s ease-in;
+}
+
+.slideRight {
+  animation: slideRight 0.2s ease-in;
 }
 
 .animation {

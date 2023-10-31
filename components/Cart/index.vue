@@ -9,7 +9,7 @@ const cart = useCart();
   >
     <div @click="cart = !cart" class="w-[calc(100%-420px)] h-full" />
     <div
-      class="fixed justify-between top-0 right-0 flex flex-col max-w-[420px] w-full h-screen bg-white border-l border-black/10"
+      class="fixed justify-between top-0 right-0 flex flex-col max-w-[420px] w-full h-screen bg-white border-l border-black/10 slideRight"
     >
       <div class="flex flex-col px-6 gap-8 w-full py-8 h-full">
         <div class="flex justify-between w-full">
