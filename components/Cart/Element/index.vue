@@ -13,9 +13,9 @@
           <h3>LVCIDIA Hoodie</h3>
           <p>€95</p>
         </div>
-        <div class="flex justify-between">
+        <div class="flex justify-between items-center">
           <div class="flex gap-2"><span>-</span>1<span>+</span></div>
-          <p class="font-primary">remove</p>
+          <p class="font-primary text-[12px]">remove</p>
         </div>
       </div>
     </div>

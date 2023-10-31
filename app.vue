@@ -1,6 +1,6 @@
 <script setup lang="ts"></script>
 
-<template>
+<template class="scrollbar scrollbar-thumb-gray-900 scrollbar-track-gray-100">
   <Header />
   <NuxtPage />
   <Cart />

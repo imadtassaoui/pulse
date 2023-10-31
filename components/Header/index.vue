@@ -28,7 +28,7 @@ const search = useSearch();
 
     <nav
       :class="{
-        'top-0 left-0 flex flex-col w-full  pb-16 lg:flex-row lg:flex lg:justify-between lg:p-0 ': 1,
+        'top-0 gap-12 left-0 flex flex-col w-full  pb-16 lg:flex-row lg:flex lg:justify-between lg:gap-0 lg:p-0 ': 1,
         hidden: !nav,
       }"
     >

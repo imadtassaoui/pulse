@@ -13,7 +13,7 @@ const search = useSearch();
       <input
         placeholder="Search"
         type="text"
-        class="text-3xl z-10 focus:outline-none"
+        class="text-3xl z-10 focus:outline-none w-full"
         spellcheck="false"
         autofocus
       />
