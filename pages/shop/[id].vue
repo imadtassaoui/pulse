@@ -4,13 +4,18 @@ const activeSize = useState("activeSize", () => "");
 
 const productInfos: string[] = ["details", "fabric & fit"];
 const activeProductInfo = useState("activeProductInfo", () => "details");
+
+onUnmounted(() => {
+  activeSize.value = "";
+  activeProductInfo.value = "details";
+});
 </script>
 
 <template>
   <div class="overflow-x-hidden">
-    <div class="pt-24 pb-8 flex flex-col gap-5 w-full lg:flex-row">
+    <div class="pt-24 pb-8 lg:px-4 flex flex-col gap-5 w-full lg:flex-row">
       <div
-        class="flex ml-4 lg:w-full overflow-x-scroll lg:overflow-hidden lg:flex-wrap gap-2 md:h-[556px] h-[408px] lg:h-auto"
+        class="flex ml-4 lg:ml-0 lg:w-full overflow-x-scroll lg:overflow-hidden lg:flex-wrap gap-2 md:h-[556px] h-[408px] lg:h-auto"
       >
         <img
           class="lg:w-[calc(50%-8px)] h-full w-fit lg:h-fit"
@@ -38,7 +43,9 @@ const activeProductInfo = useState("activeProductInfo", () => "details");
           alt=""
         />
       </div>
-      <div class="flex flex-col px-4 gap-8 max-w-[488px] lg:sticky lg:top-0">
+      <div
+        class="flex flex-col px-4 lg:p-0 gap-8 max-w-[488px] lg:sticky lg:top-0"
+      >
         <div class="flex flex-col gap-5">
           <H2>LVCIDIA Hoodie</H2>
           <p class="text-2xl">€95</p>

@@ -1,8 +1,11 @@
 <script setup lang="ts">
-const activeColor = "text-black";
 const activeFilter = useState("activeFilter", () => "all");
 
 const filters = ["all", "t-shirt", "hoodies", "shorts", "hats"];
+
+onUnmounted(() => {
+  activeFilter.value = "all";
+});
 </script>
 
 <template>
