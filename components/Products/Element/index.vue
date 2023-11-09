@@ -1,4 +1,11 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const props = defineProps({
+  product: {
+    type: Object,
+    required: true,
+  },
+});
+</script>
 
 <template>
   <NuxtLink
@@ -18,8 +25,8 @@
       />
     </div>
     <div class="flex flex-col">
-      <h3>LVCIDIA Hoodie</h3>
-      <p>€95</p>
+      <h3>{{ product.name }}</h3>
+      <p>{{ product.price }}€</p>
     </div>
   </NuxtLink>
 </template>

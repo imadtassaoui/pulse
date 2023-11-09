@@ -11,6 +11,15 @@ const props = defineProps({
     type: String,
   },
 });
+
+const { data, pending } = await useFetch(
+  `http://localhost:8000/products/${props.type}`,
+  {
+    lazy: true,
+  }
+);
+const products = toRaw(await data.value);
+console.log(products);
 </script>
 
 <template>
@@ -19,17 +28,22 @@ const props = defineProps({
     <div class="flex flex-col gap-6">
       <ProductsFilter v-if="filter" />
       <div class="flex flex-wrap gap-2">
+        <h3 v-if="pending">Loading ...</h3>
+        <ProductsElement
+          v-else
+          v-for="product in products"
+          :product="product"
+        />
+        <!-- <ProductsElement />
         <ProductsElement />
         <ProductsElement />
-        <ProductsElement />
-        <ProductsElement />
         <ProductsElement v-if="type !== 'filtered'" />
         <ProductsElement v-if="type !== 'filtered'" />
         <ProductsElement v-if="type !== 'filtered'" />
         <ProductsElement v-if="type !== 'filtered'" />
         <ProductsElement v-if="type !== 'filtered'" />
         <ProductsElement v-if="type !== 'filtered'" />
-        <ProductsElement v-if="type !== 'filtered'" />
+        <ProductsElement v-if="type !== 'filtered'" /> -->
       </div>
     </div>
   </div>
