@@ -17,7 +17,7 @@ let state = reactive({
 });
 
 const fetchData = async () => {
-  const endpoint = `http://localhost:8000/products/${props.type}${
+  const endpoint = `https://pulse-api-one.vercel.app/products/${props.type}${
     state.activeCategory !== "ALL" ? `/${state.activeCategory}` : ""
   }`;
   const { data, pending } = await useFetch(endpoint, { lazy: true });
