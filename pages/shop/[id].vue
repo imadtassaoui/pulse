@@ -14,6 +14,7 @@ const productId = computed(() => useRoute().params.id);
 console.log(productId.value);
 
 const endpoint = `https://pulse-api-one.vercel.app/${productId.value}`;
+console.log(endpoint);
 
 const { data: product, pending } = await useFetch(endpoint);
 console.log(await product.value);
