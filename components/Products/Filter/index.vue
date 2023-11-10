@@ -1,11 +1,18 @@
 <script setup lang="ts">
-const activeFilter = useState("activeFilter", () => "all");
-
-const filters = ["all", "t-shirt", "hoodies", "shorts", "hats"];
-
-onUnmounted(() => {
-  activeFilter.value = "all";
+// const activeCategory = useState("activeCategory", () => "ALL");
+defineProps({
+  categories: {
+    type: Array<string>,
+    required: true,
+  },
+  activeCategory: {
+    type: String,
+    required: true,
+  },
 });
+// onUnmounted(() => {
+//   activeCategory.value = "ALL";
+// });
 </script>
 
 <template>
@@ -13,14 +20,14 @@ onUnmounted(() => {
     <h3>filter</h3>
     <div class="flex flex-wrap gap-x-5 gap-y-2">
       <h4
-        v-for="filter in filters"
-        @click="activeFilter = filter"
+        v-for="category in categories"
+        @click="$emit('changeActive', category)"
         :class="{
-          'text-dark-30 cursor-pointer': activeFilter !== filter,
-          'text-black': activeFilter === filter,
+          'text-dark-30 cursor-pointer': activeCategory !== category,
+          'text-black': activeCategory === category,
         }"
       >
-        {{ filter }}
+        {{ category }}
       </h4>
     </div>
   </div>

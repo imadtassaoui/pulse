@@ -1,4 +1,4 @@
-<sctipt setup lang="ts"></sctipt>
+<script setup lang="ts"></script>
 
 <template>
   <div>
