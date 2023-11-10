@@ -9,6 +9,14 @@ onUnmounted(() => {
   activeSize.value = "";
   activeProductInfo.value = "details";
 });
+
+const productId = computed(() => useRoute().params.id);
+console.log(productId.value);
+
+const endpoint = `http://localhost:8000/${productId.value}`;
+
+const { data: product, pending } = await useFetch(endpoint);
+console.log(await product.value);
 </script>
 
 <template>
@@ -47,8 +55,8 @@ onUnmounted(() => {
         class="flex flex-col px-4 lg:p-0 gap-8 max-w-[488px] lg:sticky lg:top-0"
       >
         <div class="flex flex-col gap-5">
-          <H2>LVCIDIA Hoodie</H2>
-          <p class="text-2xl">€95</p>
+          <H2>{{ product.name }}</H2>
+          <p class="text-2xl">{{ product.price }}€</p>
         </div>
         <div class="flex flex-col gap-5">
           <h3 class="text-xl">size</h3>
@@ -57,7 +65,7 @@ onUnmounted(() => {
               v-for="size in sizes"
               @click="activeSize = size"
               :class="{
-                'p-4 w-16 h-16 border border-black/10 flex items-center justify-center text-base pointer': true,
+                'p-4 w-16 h-16 border cursor-pointer border-black/10 flex items-center justify-center text-base pointer': true,
                 'bg-black text-white': activeSize === size,
               }"
             >
@@ -71,20 +79,19 @@ onUnmounted(() => {
           <div>
             <div class="flex flex-wrap gap-5">
               <h4
-                v-for="product in productInfos"
+                v-for="productInfo in productInfos"
                 :class="{
-                  'text-dark-30 pointer': activeProductInfo !== product,
-                  'text-black pointer': activeProductInfo === product,
+                  'text-dark-30 pointer': activeProductInfo !== productInfo,
+                  'text-black pointer': activeProductInfo === productInfo,
                 }"
-                @click="activeProductInfo = product"
+                @click="activeProductInfo = productInfo"
               >
-                {{ product }}
+                {{ productInfo }}
               </h4>
             </div>
           </div>
           <p>
-            Lorem ipsum dolor sit amet consectetur. Enim imperdiet mauris orci
-            ac eget vel. Neque commodo tristique tincidunt in ligula sed.
+            {{ product.details }}
           </p>
         </div>
       </div>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const props = defineProps({
+defineProps({
   product: {
     type: Object,
     required: true,
@@ -9,7 +9,7 @@ const props = defineProps({
 
 <template>
   <NuxtLink
-    to="/shop/1"
+    :to="`/shop/${product._id}`"
     class="flex flex-col gap-2 w-full md:w-[calc(50%-4px)] lg:w-[calc(25%-6px)]"
   >
     <div class="w-auto group overflow-hidden relative">
