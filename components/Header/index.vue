@@ -8,14 +8,6 @@ const handleLogout = () => {
   localStorage.removeItem("token");
   isAuth.value = false;
 };
-
-// watchEffect(() => {
-//   if (isAuth.value) {
-//     isAuth.value = true;
-//   } else {
-//     isAuth.value = false;
-//   }
-// });
 </script>
 
 <template>
@@ -33,6 +25,12 @@ const handleLogout = () => {
         >
           <img src="../../assets/logo.svg" alt="" />
         </NuxtLink>
+        <button
+          class="flex flex-col items-center justify-center w-auto px-4 py-2 text-xs bg-white border rounded-full lg:hidden border-black/10 bg-opacity-20"
+          @click="nav = !nav"
+        >
+          {{ !nav ? "Menu" : "Close" }}
+        </button>
       </nav>
 
       <nav
