@@ -1,8 +1,25 @@
 <script setup lang="ts">
 const form = useForm();
+const reqForm = ref({
+  email: "",
+  subject: "",
+  message: "",
+});
+const success = ref(false);
+const onSubmit = () => {
+  setTimeout(() => {
+    success.value = true;
+    reqForm.value = {
+      email: "",
+      subject: "",
+      message: "",
+    };
+  }, 2000);
+};
 </script>
 <template>
   <form
+    @submit.prevent="onSubmit"
     class="flex flex-col max-w-[352px] w-full gap-8 items-center justify-center"
   >
     <div class="flex flex-col items-center justify-center gap-2">
@@ -10,15 +27,31 @@ const form = useForm();
       <p class="text-center text-dark-60">We will email you back ASAP</p>
     </div>
     <div class="flex flex-col w-full gap-4">
-      <Input type="email" placeholder="Email" />
-      <Input type="email" placeholder="Subject" />
+      <input
+        v-model="reqForm.email"
+        placeholder="Email"
+        type="email"
+        required
+        class="w-full px-5 py-3 border rounded-full focus:outline-dark-20 font-secondary"
+        autocomplete="email"
+      />
+      <input
+        v-model="reqForm.subject"
+        placeholder="Subject"
+        type="text"
+        required
+        class="w-full px-5 py-3 border rounded-full focus:outline-dark-20 font-secondary"
+      />
       <textarea
         class="w-full px-5 py-3 border rounded-3xl h-[145px] max-h-[145px] focus:outline-dark-20 font-secondary"
-        type="email"
         placeholder="Message"
+        v-model="reqForm.message"
+        required
       />
     </div>
-    <Button>send</Button>
-    <p class="text-[#F90000]">There was an error sending your message.</p>
+    <Button onclick="onSubmit">send</Button>
+    <p v-if="success" class="text-[#00f908]">
+      Your message was sent successfully
+    </p>
   </form>
 </template>

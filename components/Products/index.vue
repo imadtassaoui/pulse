@@ -7,11 +7,12 @@ const props = defineProps({
   filter: Boolean,
   type: String,
   category: String,
+  elementNumber: Number,
 });
 
 let state = reactive({
   activeCategory: ref("ALL"),
-  categories: ["ALL", "T-SHIRT", "HOODIES", "SHORTS", "HATS"],
+  categories: ["ALL", "T-SHIRT", "HOODIES", "SHORTS"],
   products: [],
   pending: ref(false),
 });
@@ -22,7 +23,11 @@ const fetchData = async () => {
   }`;
   const { data, pending } = await useFetch(endpoint, { lazy: true });
   console.log(toRaw(await data.value));
-  state.products = toRaw(await data.value);
+  if (props.elementNumber) {
+    state.products = toRaw(await data.value).slice(0, props.elementNumber);
+  } else {
+    state.products = toRaw(await data.value);
+  }
   state.pending = pending;
 };
 

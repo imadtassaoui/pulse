@@ -1,4 +1,8 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+defineProps({
+  vModel: String,
+});
+</script>
 <template>
   <input
     placeholder="Email"

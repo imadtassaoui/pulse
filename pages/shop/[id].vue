@@ -28,28 +28,9 @@ console.log(await product.value);
       >
         <img
           class="lg:w-[calc(50%-8px)] h-full w-fit lg:h-fit"
-          src="../../assets/hoodie1.png"
+          :src="image"
           alt=""
-        />
-        <img
-          class="lg:w-[calc(50%-8px)] h-full w-fit lg:h-fit"
-          src="../../assets/hoodie2.png"
-          alt=""
-        />
-        <img
-          class="lg:w-[calc(50%-8px)] h-full w-fit lg:h-fit"
-          src="../../assets/hoodie1.png"
-          alt=""
-        />
-        <img
-          class="lg:w-[calc(50%-8px)] h-full w-fit lg:h-fit"
-          src="../../assets/hoodie2.png"
-          alt=""
-        />
-        <img
-          class="lg:w-[calc(50%-8px)] h-full w-fit lg:h-fit"
-          src="../../assets/hoodie1.png"
-          alt=""
+          v-for="image in product.images"
         />
       </div>
       <div
@@ -57,7 +38,14 @@ console.log(await product.value);
       >
         <div class="flex flex-col gap-5">
           <H2>{{ product.name }}</H2>
-          <p class="text-2xl">{{ product.price }}€</p>
+          <p class="text-2xl">
+            {{ product.price }}€
+            <span
+              class="font-secondary text-neutral-400 line-through"
+              v-if="product.oldPrice"
+              >{{ product.oldPrice }}€</span
+            >
+          </p>
         </div>
         <div class="flex flex-col gap-5">
           <h3 class="text-xl">size</h3>
@@ -82,8 +70,10 @@ console.log(await product.value);
               <h4
                 v-for="productInfo in productInfos"
                 :class="{
-                  'text-dark-30 pointer': activeProductInfo !== productInfo,
-                  'text-black pointer': activeProductInfo === productInfo,
+                  'text-dark-30 cursor-pointer':
+                    activeProductInfo !== productInfo,
+                  'text-black cursor-pointer ':
+                    activeProductInfo === productInfo,
                 }"
                 @click="activeProductInfo = productInfo"
               >
@@ -92,11 +82,15 @@ console.log(await product.value);
             </div>
           </div>
           <p>
-            {{ product.details }}
+            {{
+              activeProductInfo === "details"
+                ? product.details
+                : product.fabricAndFit
+            }}
           </p>
         </div>
       </div>
     </div>
-    <Products type="filtered" headline="you may also like" />
+    <Products headline="you may also like" type="UNISEX" :elementNumber="4" />
   </div>
 </template>

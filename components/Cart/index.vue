@@ -24,7 +24,7 @@ const cart = useCart();
           />
         </div>
         <div
-          class="flex flex-col w-full gap-4 overflow-y-scroll h-auto overflow-auto pr-1"
+          class="flex flex-col w-full gap-4 overflow-y-auto h-auto overflow-auto pr-1"
         >
           <CartElement />
           <div class="w-full h-[1px] bg-dark-20" />
@@ -33,7 +33,6 @@ const cart = useCart();
           <CartElement />
           <div class="w-full h-[1px] bg-dark-20" />
           <CartElement />
-          <div class="w-full h-[1px] bg-dark-20" />
         </div>
       </div>
       <div
