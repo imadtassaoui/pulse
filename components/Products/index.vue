@@ -22,7 +22,6 @@ const fetchData = async () => {
     state.activeCategory !== "ALL" ? `/${state.activeCategory}` : ""
   }`;
   const { data, pending } = await useFetch(endpoint, { lazy: true });
-  console.log(toRaw(await data.value));
   if (props.elementNumber) {
     state.products = toRaw(await data.value).slice(0, props.elementNumber);
   } else {
@@ -37,10 +36,6 @@ watchEffect(() => {
 
 const products = computed(() => state.products);
 const pending = computed(() => state.pending);
-
-onUpdated(() => {
-  console.log(state.activeCategory);
-});
 </script>
 
 <template>

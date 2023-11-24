@@ -42,7 +42,6 @@ const handleLogin = async () => {
         required
         class="w-full px-5 py-3 border rounded-full focus:outline-dark-20 font-secondary"
       />
-      <p>{{ reqForm }}</p>
       <input
         v-model="reqForm.password"
         placeholder="Password"
@@ -64,9 +63,9 @@ const handleLogin = async () => {
         >
       </p>
 
-      <p class="cursor-pointer" @click="form = 'forgetPass'">
+      <!-- <p class="cursor-pointer" @click="form = 'forgetPass'">
         Forgot your password?
-      </p>
+      </p> -->
     </div>
   </form>
 </template>

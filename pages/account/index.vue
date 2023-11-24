@@ -6,8 +6,6 @@ const router = useRouter();
 //   middleware: "auth",
 // });
 onBeforeMount(() => {
-  console.log(isAuth.value);
-
   if (isAuth.value) {
     navigateTo("/");
   }

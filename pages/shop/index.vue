@@ -1,8 +1,4 @@
-<script setup lang="ts">
-const { data } = await useFetch("http://localhost:8000/products/");
-const products = toRaw(data.value);
-console.log(products);
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div>

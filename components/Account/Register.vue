@@ -34,7 +34,6 @@ const handleRegister = async () => {
         v-model="reqForm.username"
         class="w-full px-5 py-3 border rounded-full focus:outline-dark-20 font-secondary"
       />
-      <p>{{ reqForm }}</p>
       <input
         placeholder="Email"
         required
