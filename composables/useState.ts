@@ -5,4 +5,3 @@ export const useWidth = () =>
 export const useCart = () => useState<boolean>("cart", () => false);
 export const useSearch = () => useState<boolean>("search", () => false);
 export const useProducts = () => useState<any[]>("products", () => []);
-export const useAuth = () => useState<boolean>("auth", () => false);

@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 <template>
   <div
-    class="sticky top-0 flex flex-col items-center justify-center w-screen h-screen bg-center bg-cover snap-start -z-10 bg-hero"
+    class="sticky top-0 flex flex-col items-center justify-center w-screen h-screen bg-left bg-cover snap-start -z-10 bg-hero"
   >
     <!-- <h1 class="text-white mix-blend-soft-light text-[44px] md:text-[90px]">
       pulse

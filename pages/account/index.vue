@@ -1,15 +1,5 @@
 <script setup lang="ts">
 const form = useForm();
-const isAuth = useAuth();
-const router = useRouter();
-// definePageMeta({
-//   middleware: "auth",
-// });
-onBeforeMount(() => {
-  if (isAuth.value) {
-    navigateTo("/");
-  }
-});
 </script>
 
 <template>

@@ -6,8 +6,8 @@ const reqForm = ref({
   message: "",
 });
 const success = ref(false);
-const onSubmit = () => {
-  setTimeout(() => {
+const onSubmit = async () => {
+  await setTimeout(() => {
     success.value = true;
     reqForm.value = {
       email: "",
@@ -49,7 +49,7 @@ const onSubmit = () => {
         required
       />
     </div>
-    <Button onclick="onSubmit">send</Button>
+    <Button @onclick="onSubmit">send</Button>
     <p v-if="success" class="text-[#00f908]">
       Your message was sent successfully
     </p>

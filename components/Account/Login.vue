@@ -1,7 +1,11 @@
 <script setup lang="ts">
-import axios from "axios";
+import { storeToRefs } from "pinia"; // import storeToRefs helper hook from pinia
+import { useAuthStore } from "~/store/auth"; // import the auth store we just created
+
+const { authenticateUser } = useAuthStore(); // use authenticateUser action from  auth store
+
+const { authenticated } = storeToRefs(useAuthStore());
 const form = useForm();
-const isAuth = useAuth();
 const err = ref("");
 const router = useRouter();
 const reqForm = ref({
@@ -11,20 +15,14 @@ const reqForm = ref({
 
 const handleLogin = async () => {
   try {
-    const response = await axios.post(
-      "https://pulse-api-one.vercel.app/auth/login",
-      reqForm.value
-    );
-    if (response.data) {
-      localStorage.setItem("token", response.data);
-      console.log(response.data);
-      isAuth.value = true;
+    await authenticateUser(reqForm.value);
 
+    if (authenticated.value) {
       router.push("/");
     }
   } catch (error: any) {
-    err.value = error.response.data;
-    console.log(error.response.data);
+    err.value = error.message;
+    console.log(error);
   }
 };
 </script>
