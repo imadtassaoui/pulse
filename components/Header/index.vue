@@ -56,17 +56,6 @@ const search = useSearch();
           <img src="../../assets/search.svg" alt="" />
           <span> Search </span>
         </li>
-        <HeaderContainer v-if="!authenticated" label="Account" path="/account">
-          <img src="../../assets/user.svg" alt="" />
-        </HeaderContainer>
-        <HeaderContainer
-          class="cursor-pointer"
-          @click="logUserOut"
-          v-if="authenticated"
-          label="Logout"
-        >
-          <img src="../../assets/user.svg" alt="" />
-        </HeaderContainer>
         <li
           @click="cart = !cart"
           class="flex gap-2 items-center justify-center w-auto px-4 py-2 text-xs bg-white border rounded-full cursor-pointer border-black/10 bg-opacity-20 lg:bg-transparent lg:opacity-100 lg:border-none"
@@ -75,6 +64,18 @@ const search = useSearch();
 
           <span>Cart</span>
         </li>
+        <HeaderContainer v-if="!authenticated" label="Account" path="/account">
+          <img src="../../assets/user.svg" alt="" />
+        </HeaderContainer>
+
+        <HeaderContainer
+          class="cursor-pointer text-[#B91C1C]"
+          @click="logUserOut"
+          v-if="authenticated"
+          label="Logout"
+        >
+          <img src="../../assets/log-out.svg" alt="" />
+        </HeaderContainer>
       </ul>
     </nav>
   </header>

@@ -14,15 +14,14 @@ const reqForm = ref({
 });
 
 const handleLogin = async () => {
-  try {
-    await authenticateUser(reqForm.value);
+  await authenticateUser(reqForm.value);
 
-    if (authenticated.value) {
-      router.push("/");
-    }
-  } catch (error: any) {
-    err.value = error.message;
-    console.log(error);
+  if (authenticated.value) {
+    navigateTo("/");
+  }
+
+  if (!authenticated.value) {
+    err.value = "Invalid credentials";
   }
 };
 </script>
@@ -48,7 +47,7 @@ const handleLogin = async () => {
         class="w-full px-5 py-3 border rounded-full focus:outline-dark-20 font-secondary"
       />
     </div>
-    <p>{{ err }}</p>
+    <p class="text-[#B91C1C]">{{ err }}</p>
     <Button>Login</Button>
     <div class="w-full h-[1px] bg-dark-20" />
     <div class="flex flex-col items-center justify-center gap-2 text-dark-60">

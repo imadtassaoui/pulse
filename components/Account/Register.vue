@@ -1,5 +1,11 @@
 <script setup lang="ts">
 import axios from "axios";
+import { storeToRefs } from "pinia"; // import storeToRefs helper hook from pinia
+import { useAuthStore } from "~/store/auth"; // import the auth store we just created
+const { authenticateUser } = useAuthStore(); // use authenticateUser action from  auth store
+const { authenticated } = storeToRefs(useAuthStore());
+
+const router = useRouter();
 const form = useForm();
 const err = ref("");
 const reqForm = ref({
@@ -14,10 +20,15 @@ const handleRegister = async () => {
       "https://pulse-api-one.vercel.app/auth/register",
       reqForm.value
     );
-    console.log(response.data);
+    if (response.data) {
+      await authenticateUser(reqForm.value);
+
+      if (authenticated.value) {
+        navigateTo("/");
+      }
+    }
   } catch (error: any) {
     err.value = error.response.data;
-    console.log(error.response.data);
   }
 };
 </script>
@@ -48,7 +59,7 @@ const handleRegister = async () => {
         class="w-full px-5 py-3 border rounded-full focus:outline-dark-20 font-secondary"
       />
     </div>
-    <p>{{ err }}</p>
+    <p class="text-[#B91C1C]">{{ err }}</p>
     <Button>register</Button>
     <div class="w-full h-[1px] bg-dark-20" />
     <div class="flex flex-col items-center justify-center gap-2 text-dark-60">

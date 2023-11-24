@@ -1,6 +1,5 @@
 <script setup lang="ts">
 const productId = computed(() => useRoute().params.id);
-console.log(productId.value);
 
 const props = defineProps({
   headline: {
