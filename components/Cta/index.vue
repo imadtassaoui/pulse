@@ -7,7 +7,7 @@
         class="bg-center bg-cover h-1/2 md:w-1/2 md:h-full bg-men"
       >
         <div
-          class="w-full h-full p-4 transition-colors duration-200 ease-in bg-black/20 hover:bg-white/20"
+          class="w-full h-full p-4 transition-colors duration-200 ease-in hover:bg-white/5"
         >
           <h3 class="text-[24px] text-white">Men's</h3>
         </div>
@@ -17,7 +17,7 @@
         class="bg-center bg-cover h-1/2 md:w-1/2 md:h-full bg-women"
       >
         <div
-          class="w-full h-full p-4 transition-colors duration-200 ease-in bg-black/20 hover:bg-white/20"
+          class="w-full h-full p-4 transition-colors duration-200 ease-in hover:bg-white/5"
         >
           <h3 class="text-[24px] text-white">Women's</h3>
         </div>
@@ -28,7 +28,7 @@
       class="h-1/3 md:h-[304px] bg-shop bg-center bg-cover"
     >
       <div
-        class="w-full h-full p-4 transition-colors duration-200 ease-in bg-black/20 hover:bg-white/20"
+        class="w-full h-full p-4 transition-colors duration-200 ease-in bg-black/20 hover:bg-black/10"
       >
         <h3 class="text-[24px] text-white">Local stores</h3>
       </div>
