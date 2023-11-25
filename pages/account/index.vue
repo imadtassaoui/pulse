@@ -1,5 +1,13 @@
 <script setup lang="ts">
 const form = useForm();
+
+useHead({
+  title: "Account — Pulse Apparel ©",
+  meta: [
+    { name: "description", content: "Manage your Pulse Apparel account. " },
+    // Add other meta tags as needed
+  ],
+});
 </script>
 
 <template>

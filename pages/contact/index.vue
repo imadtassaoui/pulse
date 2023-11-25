@@ -1,5 +1,15 @@
 <script setup lang="ts">
 const form = useForm();
+useHead({
+  title: "Contact — Pulse Apparel ©",
+  meta: [
+    {
+      name: "description",
+      content:
+        "Get in touch with Pulse Apparel. Contact our customer support for assistance, inquiries, or feedback. We are here to help!",
+    },
+  ],
+});
 </script>
 
 <template>

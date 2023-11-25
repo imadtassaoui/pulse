@@ -1,4 +1,15 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+useHead({
+  title: "Local Stores — Pulse Apparel ©",
+  meta: [
+    {
+      name: "description",
+      content:
+        "Find a Pulse Apparel local store near you. Explore our physical stores to shop our latest collections and experience our stylish and comfortable clothing in person.",
+    },
+  ],
+});
+</script>
 
 <template>
   <div class="flex flex-col w-full h-screen md:flex-row">

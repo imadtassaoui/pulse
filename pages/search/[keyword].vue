@@ -3,6 +3,18 @@
 const keyword = computed(() => useRoute().params.keyword);
 const notFound = ref(false);
 
+useHead({
+  title: `${
+    keyword.value.charAt(0).toUpperCase() + keyword.value.slice(1)
+  } search — Pulse Apparel ©`,
+  meta: [
+    {
+      name: "description",
+      content: `Explore the latest results for ${keyword.value} search at Pulse Apparel. Discover stylish and comfortable clothing for every occasion.`,
+    },
+  ],
+});
+
 interface Product {
   sizes: {
     XXL: number;
@@ -66,10 +78,12 @@ watchEffect(() => {
 
 <template>
   <div>
-    <div
+    <!-- <div
       class="w-full h-[148px] lg:h-[220px] bg-modelSearch bg-cover sticky top-0 -z-10"
-    />
-    <div class="flex flex-col gap-8 px-4 py-8 bg-white lg:py-16 min-h-screen">
+    /> -->
+    <div
+      class="flex flex-col gap-8 px-4 pt-24 pb-8 bg-white lg:py-16 min-h-screen"
+    >
       <H2>Search for ({{ keyword }})</H2>
       <div class="flex flex-col gap-6">
         <h3 v-if="pending">Loading ...</h3>

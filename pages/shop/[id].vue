@@ -15,6 +15,18 @@ const productId = computed(() => useRoute().params.id);
 const endpoint = `https://pulse-api-one.vercel.app/${productId.value}`;
 
 const { data: product, pending } = await useFetch(endpoint);
+
+const name = computed(() => product.value.name);
+const description = computed(() => product.value.details);
+useHead({
+  title: `${name.value} — Pulse Apparel ©`,
+  meta: [
+    {
+      name: "description",
+      content: `${description.value}`,
+    },
+  ],
+});
 </script>
 
 <template>

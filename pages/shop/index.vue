@@ -1,4 +1,15 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+useHead({
+  title: "Shop All — Pulse Apparel ©",
+  meta: [
+    {
+      name: "description",
+      content:
+        "Explore the complete collection of stylish and comfortable clothing at Pulse Apparel. Shop all the latest trends for every occasion.",
+    },
+  ],
+});
+</script>
 
 <template>
   <div>
