@@ -42,12 +42,14 @@ const handleRegister = async () => {
       <input
         placeholder="Name"
         required
+        type="text"
         v-model="reqForm.username"
         class="w-full px-5 py-3 border rounded-full focus:outline-dark-20 font-secondary"
       />
       <input
         placeholder="Email"
         required
+        type="email"
         v-model="reqForm.email"
         class="w-full px-5 py-3 border rounded-full focus:outline-dark-20 font-secondary"
       />

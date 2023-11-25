@@ -27,6 +27,7 @@ export default {
         modelMan: "url('./public/model-man.png')",
         modelWoman: "url('./public/model-woman.png')",
         hero: "url('./public/Hero.png')",
+        modelSearch: "url('./public/model-search.png')",
       },
       colors: {
         dark: {

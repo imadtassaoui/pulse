@@ -1,5 +1,18 @@
 <script setup lang="ts">
+import { ClientOnly } from "#build/components";
+
 const search = useSearch();
+const searchTerm = ref("");
+const nav = useNav();
+
+const redirectToSearch = () => {
+  if (searchTerm.value !== "") {
+    search.value = false;
+    nav.value = false;
+    navigateTo(`/search/${searchTerm.value}`);
+    searchTerm.value = "";
+  }
+};
 </script>
 <template>
   <div
@@ -12,10 +25,12 @@ const search = useSearch();
       <img src="../assets/search.svg" alt="" class="h-6" />
       <input
         placeholder="Search"
+        v-model="searchTerm"
         type="text"
         class="text-3xl z-10 focus:outline-none w-full"
         spellcheck="false"
         autofocus
+        @keyup.enter="redirectToSearch"
       />
     </div>
     <div @click="search = !search" class="w-full h-full" />
