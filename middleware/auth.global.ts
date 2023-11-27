@@ -5,16 +5,13 @@ export default defineNuxtRouteMiddleware(async (to) => {
   const sessionToken = useCookie("token"); // get token from cookies
 
   // fetch verification endpoint
-  const { status }: any = await useFetch(
-    "https://pulse-api-one.vercel.app/auth/token",
-    {
-      method: "post",
-      headers: { "Content-Type": "application/json" },
-      body: {
-        sessionToken: sessionToken.value,
-      },
-    }
-  );
+  const { status }: any = await useFetch("http://localhost:8000/auth/token", {
+    method: "post",
+    headers: { "Content-Type": "application/json" },
+    body: {
+      sessionToken: sessionToken.value,
+    },
+  });
 
   const validToken = status.value === "success";
 

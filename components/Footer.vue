@@ -21,48 +21,8 @@
         <p>® All rights reserved.</p>
       </div>
       <div
-        class="flex flex-wrap lg:justify-between gap-x-16 gap-y-8 md:gap-5 lg:w-full lg:pr-16"
+        class="flex flex-wrap lg:justify-center gap-x-16 gap-y-8 md:gap-5 lg:w-full lg:pr-16"
       >
-        <div class="flex flex-col gap-5 min-w-[106px]">
-          <h3 class="text-dark-60">Menu</h3>
-          <div class="flex flex-col gap-1">
-            <NuxtLink to="/shop/all" class="lowercase font-secondary"
-              >All</NuxtLink
-            >
-            <NuxtLink to="/shop/men" class="lowercase font-secondary"
-              >Men’s</NuxtLink
-            >
-            <NuxtLink to="/shop/women" class="lowercase font-secondary"
-              >Women’s</NuxtLink
-            >
-            <NuxtLink to="/local-stores" class="lowercase font-secondary"
-              >Local stores</NuxtLink
-            >
-            <NuxtLink to="/contact" class="lowercase font-secondary"
-              >Contact</NuxtLink
-            >
-          </div>
-        </div>
-        <div class="flex flex-col gap-5 min-w-[106px]">
-          <h3 class="text-dark-60">Menu</h3>
-          <div class="flex flex-col gap-1">
-            <NuxtLink to="/shop/all" class="lowercase font-secondary"
-              >All</NuxtLink
-            >
-            <NuxtLink to="/shop/men" class="lowercase font-secondary"
-              >Men’s</NuxtLink
-            >
-            <NuxtLink to="/shop/women" class="lowercase font-secondary"
-              >Women’s</NuxtLink
-            >
-            <NuxtLink to="/local-stores" class="lowercase font-secondary"
-              >Local stores</NuxtLink
-            >
-            <NuxtLink to="/contact" class="lowercase font-secondary"
-              >Contact</NuxtLink
-            >
-          </div>
-        </div>
         <div class="flex flex-col gap-5 min-w-[106px]">
           <h3 class="text-dark-60">Menu</h3>
           <div class="flex flex-col gap-1">
