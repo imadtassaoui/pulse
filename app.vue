@@ -1,5 +1,8 @@
 <script setup lang="ts">
-const router = useRouter();
+import { useAuthStore } from "./store/auth";
+
+const toggleCart = useCart();
+const { authenticated } = storeToRefs(useAuthStore());
 
 // Temporary solution until page refresh bug is fixed
 const messages = [
@@ -19,7 +22,7 @@ if (typeof window !== "undefined") {
 <template class="scrollbar scrollbar-thumb-gray-900 scrollbar-track-gray-100">
   <Header />
   <NuxtPage />
-  <Cart />
+  <Cart v-if="toggleCart" />
   <Search />
   <Footer />
 </template>

@@ -7,6 +7,14 @@ const { logUserOut } = useAuthStore(); // use logUserOut action from auth store
 const nav = useNav();
 const cart = useCart();
 const search = useSearch();
+
+const handleCart = () => {
+  if (!authenticated.value) {
+    navigateTo("/account");
+  } else {
+    cart.value = !cart.value;
+  }
+};
 </script>
 
 <template>
@@ -57,7 +65,7 @@ const search = useSearch();
           <span> Search </span>
         </li>
         <li
-          @click="cart = !cart"
+          @click="handleCart"
           class="flex gap-2 items-center justify-center w-auto px-4 py-2 text-xs bg-white border rounded-full cursor-pointer border-black/10 bg-opacity-20 lg:bg-transparent lg:opacity-100 lg:border-none"
         >
           <img src="../../assets/bag.svg" alt="" />

@@ -1,13 +1,35 @@
 <script setup lang="ts">
-const cart = useCart();
+const toggleCart = useCart(); // toggle cart to open or close
+import { storeToRefs } from "pinia"; // import storeToRefs helper hook from pinia
+
+import { useCartStore } from "~/store/cart"; // import the auth store we just created
+
+const { fetchUserCart, removeFromCart } = useCartStore(); // use authenticateUser action from  auth store
+
+const { cart } = storeToRefs(useCartStore());
+
+import { useAuthStore } from "~/store/auth"; // import the auth store we just created
+const { authenticated } = storeToRefs(useAuthStore());
+
+onMounted(async () => {
+  if (!authenticated.value) {
+    navigateTo("/account");
+  }
+  if (cart.value.length === 0) {
+    await fetchUserCart();
+    console.log("Fetched", cart.value);
+  }
+});
 </script>
 
 <template>
   <div
-    v-if="cart"
     class="fixed top-0 left-0 z-10 flex flex-col w-screen h-screen bg-white/50"
   >
-    <div @click="cart = !cart" class="w-[calc(100%-420px)] h-full" />
+    <div
+      @click="toggleCart = !toggleCart"
+      class="w-[calc(100%-420px)] h-full"
+    />
     <div
       class="fixed justify-between top-0 right-0 flex flex-col max-w-[420px] w-full h-screen bg-white border-l border-black/10 slideRight"
     >
@@ -18,7 +40,7 @@ const cart = useCart();
           <h2 class="text-[24px]">Cart</h2>
           <img
             class="cursor-pointer"
-            @click="cart = !cart"
+            @click="toggleCart = !toggleCart"
             src="../../assets/cross.svg"
             alt=""
           />
@@ -26,13 +48,14 @@ const cart = useCart();
         <div
           class="flex flex-col w-full gap-4 overflow-y-auto h-auto overflow-auto pr-1"
         >
-          <CartElement />
-          <div class="w-full h-[1px] bg-dark-20" />
-          <CartElement />
-          <div class="w-full h-[1px] bg-dark-20" />
-          <CartElement />
-          <div class="w-full h-[1px] bg-dark-20" />
-          <CartElement />
+          <div
+            v-for="item in cart.items"
+            :key="item._id"
+            class="flex flex-col gap-4"
+          >
+            <CartElement :item="item" />
+            <div class="w-full h-[1px] bg-dark-20" />
+          </div>
         </div>
       </div>
       <div
@@ -41,7 +64,7 @@ const cart = useCart();
         <div class="h-[1px] bg-dark-20 w-full" />
         <div class="flex justify-between w-full">
           <h3>total</h3>
-          <p>€190</p>
+          <p>€{{ cart.totalPrice }}</p>
         </div>
         <div class="w-full">
           <Button>Checkout</Button>

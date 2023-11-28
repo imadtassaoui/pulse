@@ -1,4 +1,5 @@
 import { defineStore } from "pinia";
+import { useCartStore } from "~/store/cart"; // import the auth store we just created
 
 interface UserPayloadInterface {
   email: string;
@@ -27,7 +28,11 @@ export const useAuthStore = defineStore("auth", {
       this.loading = pending;
 
       if (data.value) {
-        const token = useCookie("token"); // useCookie new hook in nuxt 3
+        const token = useCookie("token", {
+          expires: new Date("2030-12-31"),
+          path: "/",
+          secure: true,
+        }); // useCookie new hook in nuxt 3
         token.value = data?.value; // set token to cookie
         this.authenticated = true; // set authenticated  state value to true
       }
@@ -36,6 +41,7 @@ export const useAuthStore = defineStore("auth", {
       const token = useCookie("token"); // useCookie new hook in nuxt 3
       this.authenticated = false; // set authenticated  state value to false
       token.value = null; // clear the token cookie
+      useCartStore().clearCart();
     },
   },
 });

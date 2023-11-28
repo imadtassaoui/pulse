@@ -1,5 +1,14 @@
 <script setup lang="ts">
-const sizes: string[] = ["xs", "s", "m", "l", "xl"];
+import { useCartStore } from "~/store/cart";
+const { fetchUserCart, addToCart, removeFromCart } = useCartStore(); // use authenticateUser action from  auth store
+const { cart } = storeToRefs(useCartStore());
+
+const toggleCart = useCart(); // toggle cart to open or close
+
+import { useAuthStore } from "~/store/auth"; // import the auth store we just created
+const { authenticated } = storeToRefs(useAuthStore());
+
+const sizes: string[] = ["XS", "S", "M", "L", "XL"];
 const activeSize = useState("activeSize", () => "");
 
 const productInfos: string[] = ["details", "fabric & fit"];
@@ -27,6 +36,17 @@ useHead({
     },
   ],
 });
+
+const handleAddToCart = async () => {
+  if (!authenticated.value) {
+    navigateTo("/account");
+  } else {
+    console.log(productId.value as string, activeSize.value, 1);
+
+    await addToCart(productId.value as string, activeSize.value, 1);
+    toggleCart.value = true;
+  }
+};
 </script>
 
 <template>
@@ -71,7 +91,7 @@ useHead({
             </div>
           </div>
         </div>
-        <Button>add to cart</Button>
+        <Button @click="handleAddToCart">add to cart</Button>
         <div class="w-full h-[1px] bg-dark-20" />
         <div class="flex flex-col gap-5">
           <div>
